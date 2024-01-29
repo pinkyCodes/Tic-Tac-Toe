@@ -1,23 +1,27 @@
-import { createContext, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
 
-interface GameContextProps {
+export interface GameContextProps {
     squares: (null | string)[];
     isNext: boolean;
     setSquares: React.Dispatch<React.SetStateAction<(null | string)[]>>;
     setIsNext: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const GameContext = createContext<GameContextProps | null>(null);
+export const GameContext = createContext<GameContextProps | null>(null);
 
-export const GameProvider = ({ children }) => {
+export interface GameProviderProps {
+    children: ReactNode;
+}
+
+export const GameProvider = ({ children }: GameProviderProps) => {
     const [squares, setSquares] = useState<(null | string)[]>(Array.from({ length: 9 }, () => null));
     const [isNext, setIsNext] = useState(true);
 
     return (
         <GameContext.Provider value={{
             squares,
-            isNext,
             setSquares,
+            isNext,
             setIsNext
         }}>
             {children}
