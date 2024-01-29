@@ -1,49 +1,90 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap");
 
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+
+:root {
+  --orangeColor: rgb(242, 193, 78);
+  --darkColor: #2d414b;
 }
 
 body {
-  font-family: sans-serif;
+  background: rgb(61, 99, 218);
+  background: radial-gradient(circle,
+      rgb(129, 147, 199) 0%,
+      rgb(171, 72, 72) 55%,
+      rgb(242, 193, 78) 100%);
   margin: 20px;
-  padding: 0;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 3.5rem;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right,
+      rgba(242, 193, 78, 0.7),
+      rgba(255, 255, 255, 0.4));
+}
+
+#status {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.4), rgba(242, 193, 78, 0.7));
+}
+
+#board {
+  max-width: 100%;
+  width: 600px;
+  padding: 2rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  position: relative;
 }
 
 .square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
+  height: 130px;
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--darkColor);
+  background-color: var(--orangeColor);
+  font-weight: 600;
+  font-size: 4rem;
+  margin: 0.3rem;
+  box-shadow: 2px 5px 5px #000;
+  border-radius: 10px;
 }
 
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
-}
+@media screen and (max-width: 768px) {
+  #board {
+    width: 100%;
+    padding: 1rem;
+  }
 
-.status {
-  margin-bottom: 10px;
+  .square {
+    height: 100px;
+    width: 100px;
+    font-size: 3rem;
+  }
 }
