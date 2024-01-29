@@ -10,6 +10,7 @@ export const calculateWinner = (squares: (string | null)[]) => {
         [2, 4, 6]
     ];
 
+    // winner
     for (let i = 0; i < winningCombinations.length; i++) {
         const [a, b, c] = winningCombinations[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
@@ -17,8 +18,10 @@ export const calculateWinner = (squares: (string | null)[]) => {
         }
     }
 
+    // draw
     if (squares.every((el) => el !== null)) return "Draw";
 
+    // continue game
     return null;
 };
 
@@ -28,16 +31,16 @@ export const determineStatus = (squares: (string | null)[], isNext: boolean) => 
 
     switch (winner) {
         case null:
-            status = "Next player: " + (isNext ? "X" : "O");
+            status = `Next move -> ${isNext ? "X" : "O"}`;
             break;
         case "Draw":
             status = "The game is a draw!";
             break;
         case "X":
-            status = "The winner is Player X";
+            status = "The winner is X!";
             break;
         case "O":
-            status = "The winner is Player O";
+            status = "The winner is O!";
             break;
         default:
             break;
