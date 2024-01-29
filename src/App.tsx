@@ -2,7 +2,7 @@ import { useState } from "react";
 import Square from "./components/Square";
 import { calculateWinner, determineStatus } from "./helpers/helpers";
 
-const Board = () => {
+const App = () => {
     const [isNext, setIsNext] = useState(true);
     const [squares, setSquares] = useState<(null | string)[]>(Array.from({ length: 9 }, () => null));
 
@@ -36,4 +36,4 @@ const Board = () => {
     )
 };
 
-export default Board;
+export default App;
